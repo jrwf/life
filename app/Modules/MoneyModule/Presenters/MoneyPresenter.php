@@ -255,6 +255,7 @@ class MoneyPresenter extends Nette\Application\UI\Presenter
     public function createComponentSpendForm(): Form
     {
         // https://github.com/nextras/form-components
+        // Test
         $form = new Form();
         $form->addInteger('amount', 'Částka:');
         $form->addText('spendTime', 'Datum')
