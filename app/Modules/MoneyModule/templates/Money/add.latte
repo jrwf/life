@@ -1,0 +1,70 @@
+{block content}
+
+    {include 'nav.latte'}
+
+    <style>
+        body {
+            font-family: arial;
+        }
+
+        table.add {
+            border-collapse: separate;
+            border-spacing: 1px;
+            background-color: silver;
+            margin-bottom: 50px;
+        }
+
+        table.add th,
+        table.add td {
+            padding: 5px 10px;
+            text-align: left;
+            background-color: white;
+        }
+
+        table td.money-amount {
+            text-align: right;
+        }
+    </style>
+
+    <h1>Přijaté</h1>
+
+    <a n:href="Money:addmoney">Vložit</a>
+
+    <table class="add">
+        <thead>
+        <tr>
+            <th>Datum:</th>
+            <th>Kategorie:</th>
+            <th>Popis:</th>
+            <th class="money-amount">Částka:</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {foreach $add as $item}
+            <tr>
+                <td>{$item->addTime|date:'j. n. Y'}</td>
+                <td>{$item->categoryName}</td>
+                <td>{$item->description}</td>
+                <td class="money-amount">{$item->amount|number:0:'.':' '},- Kč</td>
+                <td><a n:href="Money:addedit, $item->moneyId">edit</a></td>
+                <td><a n:href="Money:adddelete, $item->moneyId">del</a></td>
+            </tr>
+        {/foreach}
+        </tbody>
+
+        <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="money-amount"><strong>{$alladd|number:0:'.':' '},- Kč</strong></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tfoot>
+    </table>
+
+{/block}

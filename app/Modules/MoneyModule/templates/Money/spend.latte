@@ -1,0 +1,74 @@
+{block content}
+
+    {include 'nav.latte'}
+
+    <style>
+        body {
+            font-family: arial;
+        }
+
+        table.spend {
+            border-collapse: separate;
+            border-spacing: 1px;
+            background-color: silver;
+            margin-bottom: 50px;
+        }
+
+        table th,
+        table td {
+            padding: 5px 10px;
+            text-align: left;
+            background-color: white;
+        }
+
+        .money-amount {
+            text-align: right;
+        }
+
+        tfoot tr td {
+            border-top: 2px solid black;
+        }
+    </style>
+
+    <h1>Vydané</h1>
+
+    <a n:href="Money:spendmoney">form</a>
+
+    <table class="spend">
+        <thead>
+        <tr>
+            <th>Datum:</th>
+            <th>Kategorie:</th>
+            <th>Popis:</th>
+            <th class="money-amount">Částka:</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {foreach $spend as $item}
+            <tr>
+                <td>{$item->spendTime|date:'j. n. Y'}</td>
+                <td>{$item->category}</td>
+                <td>{$item->description}</td>
+                <td class="money-amount">{$item->amount|number:0:'.':' '},- Kč</td>
+                <td><a n:href="Money:spendedit, $item->moneyId">edit</a></td>
+                <td><a n:href="Money:spenddelete, $item->moneyId">del</a></td>
+            </tr>
+        {/foreach}
+        </tbody>
+
+        <tfoot>
+        <tr class="summary">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="money-amount"><strong>{$allspend|number:0:'.':' '},- Kč</strong></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tfoot>
+    </table>
+
+{/block}

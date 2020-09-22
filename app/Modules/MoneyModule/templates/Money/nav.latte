@@ -1,0 +1,14 @@
+{block content}
+
+<style>
+    .current {
+        font-weight: bold;
+    }
+</style>
+
+<nav class="money">
+    <li><a n:href="Money:default" n:class="$presenter->isLinkCurrent('Money:default') ? current">Home</a></li>
+    <li><a n:href="Money:add" n:class="$presenter->isLinkCurrent('Money:add') ? current">Přijaté</a></li>
+    <li><a n:href="Money:spend" n:class="$presenter->isLinkCurrent('Money:spend') ? current">Vydané</a></li>
+    <li><a n:href="Money:categoryadd" n:class="$presenter->isLinkCurrent('Money:categoryadd') ? current">Nová kategorie</a></li>
+</nav>

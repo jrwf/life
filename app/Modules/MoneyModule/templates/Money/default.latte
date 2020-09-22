@@ -1,0 +1,105 @@
+{block content}
+
+<style>
+    body {
+        font-family: arial;
+    }
+
+    table {
+        border-collapse: separate;
+        border-spacing: 1px;
+        background-color: silver;
+        margin-bottom: 50px;
+    }
+
+    table th,
+    table td {
+        padding: 5px 10px;
+        text-align: left;
+        background-color: white;
+    }
+
+    .money-amount {
+        text-align: right;
+    }
+</style>
+
+{include 'nav.latte'}
+
+<table>
+    <tr>
+        <td>prijato:</td>
+        <td class="money-amount">{$alladd|number:0:'.':' '},- Kč</td>
+    </tr>
+    <tr>
+        <td>vydano:</td>
+        <td class="money-amount">{$allspend|number:0:'.':' '},- Kč</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="money-amount"><strong>{$result|number:0:'.':' '},- Kč</strong></td>
+    </tr>
+</table>
+
+<h2>Dnes:</h2>
+
+<a n:href="Money:spendmoney">form</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>category</th>
+        <th>description</th>
+        <th>castka</th>
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $today as $item}
+        <tr>
+            <td>{$item->category}</td>
+            <td>{$item->description}</td>
+            <td class="money-amount">{$item->amount|number:0:'.':' '},- Kč</td>
+        </tr>
+    {/foreach}
+    <tr>
+        <td></td>
+        <td></td>
+        <td class="money-amount"><strong>{$resultToday->result|number:0:'.':' '}</strong>,- Kč</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Tento týden:</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="money-amount"><strong>{$thisweekall->resultWeek|number:0:'.':' '}</strong>,- Kč</th>
+    </tr>
+    <tr>
+        <th>den</th>
+        <th>category</th>
+        <th>description</th>
+        <th>castka</th>
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $thisweek as $item}
+        <tr>
+            <td>{$item->spendTime|date:'%d. %m. %Y'}</td>
+            <td>{$item->category}</td>
+            <td>{$item->description}</td>
+            <td class="money-amount">{$item->amount|number:0:'.':' '},- Kč</td>
+        </tr>
+    {/foreach}
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="money-amount"><strong>{$thisweekall->resultWeek|number:0:'.':' '}</strong>,- Kč</td>
+    </tr>
+    </tbody>
+</table>
