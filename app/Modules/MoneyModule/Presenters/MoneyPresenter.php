@@ -229,10 +229,11 @@ class MoneyPresenter extends Nette\Application\UI\Presenter
     public function actionSpendEdit($spendid): void
     {
         $spend = $this->moneyManager->getSpendMoneyWhereId($spendid);
-        bdump($spend);
+        bdump($spend, 'nactena data');
         if (!$spend) {
             $this->Error('chyba');
         }
+//        $this['spendForm']->setDefaults($spend);
         $this['spendForm']->setDefaults($spend->toArray());
     }
 
@@ -254,12 +255,18 @@ class MoneyPresenter extends Nette\Application\UI\Presenter
      */
     public function createComponentSpendForm(): Form
     {
+        $datetime = new \DateTime();
+        $date = $datetime->format('Y-m-d H:i:s');
+        bdump($date, 'cas');
         // https://github.com/nextras/form-components
-        // Test
         $form = new Form();
         $form->addInteger('amount', 'Částka:');
         $form->addText('spendTime', 'Datum')
-            ->setHtmlType('date');
+//            ->setHtmlAttribute('class', 'form_datetime')
+//            ->setHtmlAttribute('id', 'datetimepicker')
+//            ->setHtmlAttribute('data-date-format', 'yyyy-mm-dd hh:ii')
+            ->setDefaultValue($date);
+//            ->setHtmlType('date');
         $category = [
             1 => 'Auto',
             2 => 'Jídlo',

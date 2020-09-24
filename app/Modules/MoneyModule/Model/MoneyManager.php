@@ -108,6 +108,7 @@ class MoneyManager
     public function getSpendMoneyWhereId($spendid)
     {
         return $this->database->table('moneySpend')->get($spendid);
+//        return $this->database->query('select moneyId, amount, category, description, date_format(spendTime, "%Y-%m-%d %H:%i:%s") as spendTime, created from moneySpend where  moneyId = ?', $spendid)->fetch();
     }
 
     public function getAllAddMoney()

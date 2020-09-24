@@ -1,7 +1,58 @@
+{layout './../../../../Presenters/templates/@layout.latte'}
+
 {block content}
+
+{*{formPrint spendForm}*}
 
     {include 'nav.latte'}
 
-    {control spendForm}
+{*    {control spendForm}*}
+
+    <form n:name="spendForm">
+
+<ul class="error" n:ifcontent>
+	<li n:foreach="$form->getOwnErrors() as $error">{$error}</li>
+</ul>
+
+
+<table>
+<tr>
+	<th>{label amount/}</th>
+
+	<td>{input amount}
+	<span class="error" n:ifcontent>{inputError amount}</span></td>
+</tr>
+
+<tr>
+	<th>{label spendTime/}</th>
+
+	<td  class="input-append date form_datetime">{input spendTime}
+	<span class="error" n:ifcontent>{inputError spendTime}</span>
+	<span class="add-on"><i class="icon-th"></i></span>
+	</td>
+</tr>
+
+<tr>
+	<th>{label category/}</th>
+
+	<td>{input category}
+	<span class="error" n:ifcontent>{inputError category}</span></td>
+</tr>
+
+<tr>
+	<th>{label description/}</th>
+
+	<td>{input description}
+	<span class="error" n:ifcontent>{inputError description}</span></td>
+</tr>
+
+<tr>
+	<th></th>
+
+	<td>{input ulozit}</td>
+</tr>
+</table>
+
+</form>
 
 {/block}
