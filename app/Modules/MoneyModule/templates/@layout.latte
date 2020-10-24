@@ -41,40 +41,12 @@
                 <li class="nav-item"><a n:href="Sign:in" class="nav-link">Přihlásit</a></li>
             {/if}
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
     </div>
 </nav>
 
-
-
-{*<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>*}
-
-{*
-<ul class="navig">
-    {if $user->loggedIn}
-    <li><a n:href="Sign:out">Odhlásit 1</a></li>
-    {else}
-    <li><a n:href="Sign:in">Přihlásit</a></li>
-    {/if}
-</ul>
-*}
-
-{*
-<ul>
-    <li n:if="$user->loggedIn"><a n:href="Homepage:default">Hlavni strana</a></li>
-    <li n:if="$user->loggedIn"><a n:href="Money:default">Penize</a></li>
-</ul>
-*}
-
 <div class="container">
-    {if $user->loggedIn}
         <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
-        {*    <div id="content">{block content}{/block}</div>*}
         {include content}
-    {/if}
 </div>
 
 {block scripts}
