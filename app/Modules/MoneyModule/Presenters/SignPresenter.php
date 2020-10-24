@@ -5,6 +5,7 @@ namespace App\Presenters;
 
 use Nette;
 use Nette\Application\UI\Form;
+use Tomaj\Form\Renderer\BootstrapRenderer;
 
 
 class SignPresenter extends Nette\Application\UI\Presenter
@@ -15,6 +16,7 @@ class SignPresenter extends Nette\Application\UI\Presenter
     protected function createComponentSignInForm(): Form
     {
         $form = new Form;
+        $form->setRenderer(new BootstrapRenderer);
         $form->addText('username', 'Uživatelské jméno:')
             ->setRequired('Prosím vyplňte své uživatelské jméno.');
 

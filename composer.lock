@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "192da9dde44b80ea1a5b9327ed97d727",
+    "content-hash": "7279be8b96ea2a8a2bccc7513fd6eebb",
     "packages": [
         {
             "name": "cakephp/core",
@@ -2657,6 +2657,50 @@
                 }
             ],
             "time": "2020-08-17T07:48:54+00:00"
+        },
+        {
+            "name": "tomaj/nette-bootstrap-form",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tomaj/nette-bootstrap-form.git",
+                "reference": "174f04d01aab097453dad98cb6c37dc6d7ecf864"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tomaj/nette-bootstrap-form/zipball/174f04d01aab097453dad98cb6c37dc6d7ecf864",
+                "reference": "174f04d01aab097453dad98cb6c37dc6d7ecf864",
+                "shasum": ""
+            },
+            "require": {
+                "nette/forms": "^3.0",
+                "php": ">= 7.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Tomas Majer",
+                    "email": "tomasmajer@gmail.com",
+                    "homepage": "http://www.tomaj.sk/"
+                }
+            ],
+            "description": "Nette bootstrap form renderer",
+            "keywords": [
+                "bootstrap",
+                "form",
+                "nette",
+                "renderer"
+            ],
+            "time": "2019-03-29T13:31:10+00:00"
         },
         {
             "name": "tracy/tracy",
