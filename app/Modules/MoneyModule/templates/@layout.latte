@@ -44,27 +44,6 @@
     </div>
 </nav>
 
-
-
-{*<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>*}
-
-{*
-<ul class="navig">
-    {if $user->loggedIn}
-    <li><a n:href="Sign:out">Odhlásit 1</a></li>
-    {else}
-    <li><a n:href="Sign:in">Přihlásit</a></li>
-    {/if}
-</ul>
-*}
-
-{*
-<ul>
-    <li n:if="$user->loggedIn"><a n:href="Homepage:default">Hlavni strana</a></li>
-    <li n:if="$user->loggedIn"><a n:href="Money:default">Penize</a></li>
-</ul>
-*}
-
 <div class="container">
         <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
         {include content}
