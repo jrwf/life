@@ -4,8 +4,9 @@ declare(strict_types=1);
 namespace App\Presenters;
 
 use Nette;
-use Nette\Application\UI\Form;
 use App\MoneyManager;
+use Nette\Application\UI\Form;
+use Tomaj\Form\Renderer\BootstrapRenderer;
 
 class MoneyPresenter extends Nette\Application\UI\Presenter
 {
@@ -136,6 +137,7 @@ class MoneyPresenter extends Nette\Application\UI\Presenter
     {
         // https://github.com/nextras/form-components
         $form = new Form();
+        $form->setRenderer(new BootstrapRenderer);
         $form->addInteger('amount', 'Částka:');
         $form->addText('addTime', 'Datum')
             ->setHtmlType('date');
@@ -153,7 +155,7 @@ class MoneyPresenter extends Nette\Application\UI\Presenter
         $form->addSelect('category', 'Kategorie:', $categoryAdd);
         $form->addTextArea('description', 'Popis');
 
-        $form->addSubmit('ulozit', 'Ulozit');
+        $form->addSubmit('ulozit', 'Uložit');
         $form->onSuccess[] = [$this, 'onSuccessdAddForm'];
         return $form;
     }
@@ -260,6 +262,7 @@ class MoneyPresenter extends Nette\Application\UI\Presenter
         bdump($date, 'cas');
         // https://github.com/nextras/form-components
         $form = new Form();
+        $form->setRenderer(new BootstrapRenderer);
         $form->addInteger('amount', 'Částka:');
         $form->addText('spendTime', 'Datum')
 //            ->setHtmlAttribute('class', 'form_datetime')
@@ -285,7 +288,7 @@ class MoneyPresenter extends Nette\Application\UI\Presenter
         $form->addSelect('category', 'Kategorie:', $category);
         $form->addTextArea('description', 'Popis');
 
-        $form->addSubmit('ulozit', 'Ulozit');
+        $form->addSubmit('ulozit', 'Uložit');
         $form->onSuccess[] = [$this, 'onSuccessdSpendForm'];
         return $form;
     }
@@ -328,7 +331,8 @@ class MoneyPresenter extends Nette\Application\UI\Presenter
     public function createComponentCategoryAddForm(): Form
     {
         $form = new Form();
-        $form->addText('categoryAdd', 'Název kategorie');
+        $form->setRenderer(new BootstrapRenderer);
+        $form->addText('categoryAdd', 'Název kategorie:');
         $form->addSubmit('save', 'Uložit');
         $form->onSuccess[] = [$this, 'succeededCategoryAddForm'];
         return $form;

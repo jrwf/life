@@ -25,4 +25,4 @@ services:
 
 security:
 	users:
-		admin: secret  # user 'admin', password 'secret'
+		admin: eda2011  # user 'admin', password 'secret'
