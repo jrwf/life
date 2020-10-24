@@ -3,51 +3,37 @@
 {block content}
 
 <style>
-    body {
-        font-family: arial;
-    }
-
-    table {
-        border-collapse: separate;
-        border-spacing: 1px;
-        background-color: silver;
-        margin-bottom: 50px;
-    }
-
-    table th,
-    table td {
-        padding: 5px 10px;
-        text-align: left;
-        background-color: white;
-    }
-
-    .money-amount {
-        text-align: right;
+    .table {
+        width: auto;
     }
 </style>
 
 {include 'nav.latte'}
 
-<table>
+<table class="table table-bordered">
+    <thead>
     <tr>
-        <td>prijato:</td>
-        <td class="money-amount">{$alladd|number:0:'.':' '},- Kč</td>
+        <th>prijato:</th>
+        <th class="money-amount">{$alladd|number:0:'.':' '},- Kč</th>
     </tr>
     <tr>
-        <td>vydano:</td>
-        <td class="money-amount">{$allspend|number:0:'.':' '},- Kč</td>
+        <th>vydano:</th>
+        <th class="money-amount">{$allspend|number:0:'.':' '},- Kč</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td></td>
         <td class="money-amount"><strong>{$result|number:0:'.':' '},- Kč</strong></td>
     </tr>
+    </tbody>
 </table>
 
 <h2>Dnes:</h2>
 
 <a n:href="Money:spendmoney">form</a>
 
-<table>
+<table class="table table-bordered">
     <thead>
     <tr>
         <th>category</th>
@@ -73,7 +59,7 @@
 
 <h2>Tento týden:</h2>
 
-<table>
+<table class="table table-bordered">
     <thead>
     <tr>
         <th></th>

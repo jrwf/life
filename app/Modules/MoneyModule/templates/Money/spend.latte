@@ -5,38 +5,13 @@
     {include 'nav.latte'}
 
     <style>
-        body {
-            font-family: arial;
-        }
-
-        table.spend {
-            border-collapse: separate;
-            border-spacing: 1px;
-            background-color: silver;
-            margin-bottom: 50px;
-        }
-
-        table th,
-        table td {
-            padding: 5px 10px;
-            text-align: left;
-            background-color: white;
-        }
-
-        .money-amount {
-            text-align: right;
-        }
-
-        tfoot tr td {
-            border-top: 2px solid black;
-        }
     </style>
 
     <h1>Vydané</h1>
 
-    <a n:href="Money:spendmoney">form</a>
+    <a n:href="Money:spendmoney" class="btn btn-primary">form</a>
 
-    <table class="spend">
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th>Datum:</th>

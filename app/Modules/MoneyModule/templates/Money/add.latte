@@ -5,34 +5,13 @@
     {include 'nav.latte'}
 
     <style>
-        body {
-            font-family: arial;
-        }
-
-        table.add {
-            border-collapse: separate;
-            border-spacing: 1px;
-            background-color: silver;
-            margin-bottom: 50px;
-        }
-
-        table.add th,
-        table.add td {
-            padding: 5px 10px;
-            text-align: left;
-            background-color: white;
-        }
-
-        table td.money-amount {
-            text-align: right;
-        }
     </style>
 
     <h1>Přijaté</h1>
 
-    <a n:href="Money:addmoney">Vložit</a>
+    <a n:href="Money:addmoney" class="btn btn-primary">Vložit</a>
 
-    <table class="add">
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th>Datum:</th>
