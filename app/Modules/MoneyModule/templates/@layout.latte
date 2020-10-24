@@ -70,9 +70,11 @@
 *}
 
 <div class="container">
+    {if $user->loggedIn}
         <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
         {*    <div id="content">{block content}{/block}</div>*}
         {include content}
+    {/if}
 </div>
 
 {block scripts}
