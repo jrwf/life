@@ -284,6 +284,7 @@ class MoneyPresenter extends Nette\Application\UI\Presenter
             11 => 'Cetování',
             12 => 'Ostatní',
             13 => 'Oblečení',
+            14 => 'Zděchov',
         ];
         $form->addSelect('category', 'Kategorie:', $category);
         $form->addTextArea('description', 'Popis');
