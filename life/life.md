@@ -1,0 +1,5 @@
+- lidé
+- filmy
+- knihy
+- témata
+
