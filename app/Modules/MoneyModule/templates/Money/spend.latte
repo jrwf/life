@@ -11,10 +11,13 @@
 
     <a n:href="Money:spendmoney" class="btn btn-primary">form</a>
 
-    <table class="table table-bordered">
+    <table id="moneyid">
+{*      <table id="moneyid" class="table table-bordered"> *}
         <thead>
         <tr>
             <th>Datum:</th>
+            <th>Rok:</th>
+            <th>Měsíc:</th>
             <th>Kategorie:</th>
             <th>Popis:</th>
             <th class="money-amount">Částka:</th>
@@ -26,7 +29,9 @@
         <tbody>
         {foreach $spend as $item}
             <tr>
-                <td>{$item->spendTime|date:'j. n. Y'}</td>
+                <td>{$item->spendTime|date:'Y-n-j'}</td>
+                <td>{$item->spendTime|date:'Y'}</td>
+                <td>{$item->spendTime|date:'n'}</td>
                 <td>{$item->category}</td>
                 <td>{$item->description}</td>
                 <td class="money-amount">{$item->amount|number:0:'.':' '},- Kč</td>
