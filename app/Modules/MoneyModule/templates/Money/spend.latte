@@ -20,7 +20,7 @@
             <th>Měsíc:</th>
             <th>Kategorie:</th>
             <th>Popis:</th>
-            <th class="money-amount">Částka:</th>
+            <th class="money-amount" style="widht: 150px">Částka:</th>
             <th></th>
             <th></th>
         </tr>
@@ -34,7 +34,7 @@
                 <td>{$item->spendTime|date:'n'}</td>
                 <td>{$item->category}</td>
                 <td>{$item->description}</td>
-                <td class="money-amount">{$item->amount|number:0:'.':' '},- Kč</td>
+                <td class="money-amount">{$item->amount}</td>
                 <td><a n:href="Money:spendedit, $item->moneyId">edit</a></td>
                 <td><a n:href="Money:spenddelete, $item->moneyId">del</a></td>
             </tr>
@@ -43,11 +43,9 @@
 
         <tfoot>
         <tr class="summary">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="money-amount"><strong>{$allspend|number:0:'.':' '},- Kč</strong></td>
-            <td></td>
+            <td colspan="5"></td>
+            <td colspan="2" class="money-amount"><strong>Total:</strong></td>
+{*            <td class="money-amount"><strong>{$allspend|number:0:'.':' '},- Kč</strong></td>*}
             <td></td>
         </tr>
         </tfoot>

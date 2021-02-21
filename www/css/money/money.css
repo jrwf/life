@@ -1,2 +1,7 @@
 body {
 }
+
+.money-amount {
+    width: 150px !important;
+    text-align: right;
+}
