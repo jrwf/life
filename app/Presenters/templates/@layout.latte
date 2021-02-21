@@ -74,10 +74,10 @@
             // Zobrazení selektů
             // https://datatables.net/examples/api/multi_filter_select.html
             initComplete: function () {
-                this.api().columns().every( function () {
+                this.api().columns([1, 2, 3]).every( function () {
                     var column = this;
                     var select = $('<select><option value=""></option></select>')
-                        .appendTo( $(column.header()).empty() )
+                        .appendTo( $(column.header()) )
                         .on( 'change', function () {
                             var val = $.fn.dataTable.util.escapeRegex(
                                 $(this).val()
